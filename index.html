@@ -67,17 +67,19 @@
 
     .reg a {
       padding: 10px 20px;
-      background: rgba(11, 48, 20, 0.9);
-      color: #ffffff;
+      background: linear-gradient(90deg, #e2e3e3, #f0f2f1);
+      color: green;
       text-decoration: none;
       font-weight: 600;
       border-radius: 8px;
+      text-transform: uppercase;
+      font-weight: bold;
 
       transition: all 0.3s ease;
     }
 
     .reg a:hover {
-      background: rgba(25, 140, 82, 0.95);
+      background: linear-gradient(90deg, #b1c8bd, #9ce098);
       transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
     }
@@ -635,6 +637,28 @@
   box-shadow: 0 18px 45px rgba(50,255,160,0.6);
 }
 
+
+
+
+.flyer_section {
+  max-width: 900px;
+  width: 98%;
+  margin: 80px auto 20px;
+  text-align: center;
+}
+
+.flyer_title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #4dffb2;
+}
+
+
+
+
+
+
 /* Mobile spacing */
 @media (max-width: 600px) {
   .flyer_card {
@@ -731,7 +755,7 @@
             <div class="features">
               <div class="feature_item">🤝 Partnership-driven rewards</div>
               <div class="feature_item">🛡 Verified tasks & campaigns</div>
-              <div class="feature_item">💸 Earn from real engagement</div>
+              <div class="feature_item"> 📈 Limited offers !!!</div>
             </div>
 
             <!-- accepted subscription countries -->
@@ -824,20 +848,22 @@
               <!-- Nigeria -->
               <div class="flyer_card">
                 <img src="ngn.jpg" alt="Nigeria Stream Flyer">
-                <a href="register.html" class="flyer_btn">Start Streaming Registration</a>
-              </div>
-
-              <!-- Ghana -->
-              <div class="flyer_card">
-                <img src="ghs.jpg" alt="Ghana Stream Flyer">
-                <a href="register.html" class="flyer_btn">Start Streaming Registration</a>
+                <a href="register.html" class="flyer_btn">Register as a Nigeria</a>
               </div>
 
               <!-- Cameroon -->
               <div class="flyer_card">
                 <img src="xaf.jpg" alt="Cameroon Stream Flyer">
-                <a href="register.html" class="flyer_btn">Start Streaming Registration</a>
+                <a href="register.html" class="flyer_btn">Register as a Cameroon</a>
               </div>
+
+              <!-- Ghana -->
+              <div class="flyer_card">
+                <img src="ghs.jpg" alt="Ghana Stream Flyer">
+                <a href="register.html" class="flyer_btn">Register as a Ghana</a>
+              </div>
+
+              
 
             </div>
 
@@ -917,6 +943,31 @@
 
           </div>
         </section>
+
+
+
+       <!-- FEATURE FLYERS -->
+<section class="flyer_section">
+
+  <div class="country_box flyer_grid">
+
+    <div class="flyer_card">
+      <img src="photo_2026-02-06_17-50-26.jpg" alt="Video Collaboration Flyer">
+    </div>
+
+    <div class="flyer_card">
+      <img src="photo_2026-02-06_17-50-29.jpg" alt="Stream Rewards Flyer">
+    </div>
+
+    <div class="flyer_card">
+      <img src="photo_2026-02-06_17-50-32.jpg" alt="Sponsored Campaigns Flyer">
+    </div>
+
+  </div>
+
+</section>
+
+
 
 
 
