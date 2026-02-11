@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stream Registration</title>
+
+  <link rel="stylesheet" href="sweet_alart/sweetalert2.min.css">
+  <script src="sweet_alart/sweetalert2.all.min.js"></script>
+  <style>
+    /* GENERAL */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #0a3d2e, #020c08);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    header img {
+      width: 100px;
+      /* moderate logo size */
+      height: auto;
+    }
+
+    header a {
+      color: #1aff7a;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* MAIN CARD */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, .6);
+    }
+
+    /* FORM ELEMENTS */
+    h2 {
+      margin: 0 0 15px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #1aff7a;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #12d870;
+    }
+
+    /* HIDDEN CLASS */
+    .hidden {
+      display: none;
+    }
+
+
+
+
+    /* PLAN & PAYMENT */
+    .plan,
+    .payment {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .copy {
+      background: #fff;
+      color: #000;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+
+    .timer {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:480px) {
+      .card {
+        padding: 20px 15px;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      input {
+        padding: 10px;
+      }
+
+      button {
+        padding: 10px;
+      }
+    }
+
+    .footer {
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .footer-design {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .footer-whatsapp svg {
+      width: 22px;
+      height: 22px;
+      fill: #25D366;
+    }
+    .none {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="images/stream%20logo%20green.png" alt="Stream Africa Logo">
+    <a href='index.html'>← Back</a>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <div class="card">
+
+      <!-- STEP 1 -->
+      <form id="step1" action="javascript: void(0);" onsubmit="fom(this)">
+        <h2>Create your account</h2>
+        <input placeholder="Fullname" required>
+        <input placeholder="Username" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone" required>
+        <input type="password" placeholder="Password" required>
+
+        <!-- COUNTRY DROPDOWN -->
+        <label for="country" style="margin-top:10px; display:block; font-weight:bold;">Select Country:</label>
+        <select onchange="ctry(this)" id="country" required
+          style="width:100%; padding:12px; border-radius:8px; margin-top:8px; border:none; outline:none;">
+          <option value="">Select Country</option>
+          <!-- <option ptag="12000" bankname="" accontname="" acn=""  value="ngn">Nigeria</option> -->
+          <option ptag="200" bankname="MTN" accontname="RUTH ENNIN" acn="652856398" value="ghs">Ghana</option>
+          <option ptag="12000" bankname="ORANGE MONEY" accontname="FORTEH" acn="657120930" value="xaf">Cameroon</option>
+        </select>
+
+        <!-- PLAN DROPDOWN -->
+        <label for="plan" style="margin-top:10px; display:block; font-weight:bold;">Select Plan:</label>
+        <select id="plan" required
+          style="width:100%; padding:12px; border-radius:8px; margin-top:8px; border:none; outline:none;">
+          <option>Onboarding Fee – </option>
+          <!-- you can add more plans here later if needed -->
+        </select>
+
+        <button>Create Account</button>
+      </form>
+
+
+
+      
+
+
+
+      <!-- STEP 2 -->
+      <div id="step2" class="hidden">
+        <h2>Select Plan</h2>
+        <div class="plan">
+          <h3>Onboarding Fee</h3>
+          <p>Amount: <strong id="prv"></strong></p>
+        </div> 
+        <button onclick="showPayment()">Continue</button>
+        <button onclick="back(1)" class="none">Back</button>
+      </div>
+
+      <!-- STEP 3 -->
+      <div id="step3" class="hidden">
+        <h2>STREAM PAYMENT (STREAM PASS)</h2>
+        <p>Onboarding fee: <strong id="amount"></strong></p>
+
+        <div class="payment xaf-show none">
+          <p><strong>Bank:</strong> <span>MTN</span></p>
+          <p><strong>Account Name:</strong> <span>BELTUS EBOB</span></p>
+          <p>
+            <strong>Account Number:</strong > <span>652856398</span>
+            <span class="copy" onclick="copyAccT()">Copy</span>
+          </p>
+        </div>
+
+        <div class="payment">
+          <p><strong>Bank:</strong> <span id="bankName"></span></p>
+          <p><strong>Account Name:</strong> <span id="accountName"></span></p>
+          <p>
+            <strong>Account Number:</strong > <span id="accountNumber"></span>
+            <span class="copy" onclick="copyAcc()">Copy</span>
+          </p>
+        </div>
+
+        <p>Complete payment within:</p>
+        <div class="timer" id="timer">10:00</div>
+      
+        <button onclick="goTelegram()">I HAVE MADE PAYMENT</button>
+        <button onclick="back(2)" class="none">Back</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>©
+      <script>document.write(new Date().getFullYear())</script> Stream Africa. All Rights Reserved.
+    </p>
+
+    
+  </footer>
+
+
+  <script>
+    function showPlan() { step(2); }
+    function showPayment() { step(3); startTimer(); }
+    function back(stepNum) { step(stepNum); }
+
+    function ctry(e) {
+      const amount = e.options[e.selectedIndex].getAttribute("ptag");
+      const currency = e.value.toUpperCase();
+      const planSelect = document.getElementById("plan");
+      planSelect.options[0].text = `Onboarding Fee – ${currency} ${amount}`;
+      planSelect.selectedIndex = 0;  
+
+    }
+
+
+    function step(n) {
+      document.getElementById("step1").classList.add("hidden");
+      document.getElementById("step2").classList.add("hidden");
+      document.getElementById("step3").classList.add("hidden");
+      document.getElementById("step" + n).classList.remove("hidden");
+      document.getElementById("prv").innerText = document.getElementById("plan").options[0].text.split("–")[1].trim();
+      document.getElementById("amount").innerText = document.getElementById("plan").options[0].text.split("–")[1].trim();
+      document.getElementById("bankName").innerText = document.getElementById("country").options[document.getElementById("country").selectedIndex].getAttribute("bankname");
+      document.getElementById("accountName").innerText = document.getElementById("country").options[document.getElementById("country").selectedIndex].getAttribute("accontname");
+      document.getElementById("accountNumber").innerText = document.getElementById("country").options[document.getElementById("country").selectedIndex].getAttribute("acn");
+    }
+
+    function copyAcc() {
+      navigator.clipboard.writeText(document.getElementById("accountNumber").innerText);
+      alert("Account number copied");
+    }
+
+    function copyAccT() {
+      navigator.clipboard.writeText("652856398");
+      alert("Account number copied");
+    }
+
+    /* ✅ NEW TIMER CODE */
+    let timerStarted = false;
+
+    function startTimer() {
+      if (timerStarted) return; // prevent restart
+      timerStarted = true;
+
+      let timeLeft = 600; // 10 minutes
+      const timerEl = document.getElementById("timer");
+
+      const countdown = setInterval(() => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+
+        timerEl.textContent =
+          `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+        timeLeft--;
+
+        if (timeLeft < 0) {
+          clearInterval(countdown);
+          timerEl.textContent = "Expired";
+        }
+      }, 1000);
+    }
+
+  </script>
+
+
+
+  <script>
+    function fom(e) {
+
+
+      
+
+
+
+      const firstName = document.querySelector("#step1 input[placeholder='Fullname']").value;
+      const lastName = document.querySelector("#step1 input[placeholder='Username']").value;
+      const email = document.querySelector("#step1 input[placeholder='Email']").value;
+      const phone = document.querySelector("#step1 input[placeholder='Phone']").value;
+      const country = document.getElementById("country").value.toUpperCase();
+      const plan = document.getElementById("plan").options[0].text.split("–")[1].trim();
+
+      switch (country) {
+        case "GHS":
+          county = "Ghana";
+          break;
+        case "XAF":
+          county = "Cameroon";
+          break;
+          case "NGN":
+          county = "Nigeria";
+          break;
+        // add more cases if you enable more countries
+      }
+
+
+
+      const msg = `
+    Hello Admin 👋
+    I have completed my payment for the (STREAM PASS ONBOARDING FEE).
+
+    FullName: ${firstName}
+    Username: ${lastName}
+    Email: ${email}
+    Phone: ${phone}
+    Country: ${county}
+    Fee Paid: – ${plan}
+
+    Please verify my payment. Thank you.
+    `;
+
+    localStorage.setItem("reg", msg); // store message in localStorage for retrieval in dashboard
+
+      const telegramMessage = encodeURIComponent(msg);
+      get_details = {
+        bankname : document.getElementById("country").options[document.getElementById("country").selectedIndex].getAttribute("bankname"),
+        accontname : document.getElementById("country").options[document.getElementById("country").selectedIndex].getAttribute("accontname"),
+        acn : document.getElementById("country").options[document.getElementById("country").selectedIndex].getAttribute("acn"),
+        amount : document.getElementById("plan").options[0].text.split("–")[1].trim()
+      }
+
+      localStorage.setItem("paymentDetails", JSON.stringify(get_details)); // store payment details for dashboard use
+
+    
+      window.location.href = "dashboard/";
+
+
+      e.preventDefault();
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>
